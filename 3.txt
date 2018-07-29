@@ -1,0 +1,6 @@
+creat b1 and b2
+git checkout -b b1  master
+git checkout -b b2  master
+
+check current branch -> git branch
+checkout branch -> git checkout b1
