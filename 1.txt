@@ -1,0 +1,18 @@
+OutputStream fOut = null;
+            String filename = "/wallpaper.png";
+            File file = new File(ProActivity.this.getFilesDir(), filename);
+
+            try {
+            file.createNewFile();
+
+                fOut = new FileOutputStream(file);
+            // 100 means no compression, the lower you go, the stronger the compression
+                Bitmap thumbnail = (BitmapFactory.decodeFile(picturePath));
+                thumbnail.compress(Bitmap.CompressFormat.PNG, 50, fOut);
+                fOut.flush();
+                fOut.close();
+
+                FTPreferencesManager.getInstance().setWallpaper(ProActivity.this.getFilesDir()+filename);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
